@@ -1,0 +1,12 @@
+<div class="container">
+     <div class="col-md-12 title-margin">
+       <%= image_tag "main.jpg", class: 'article-image img-responsive' %>
+      <h2 class="text-center"><%= @article.title %></h2>
+      <h3 class="text-center" style="padding-top: 15px;"><%= simple_format @article.body %></h3>
+     <%= @article.created_at.strftime("%Y年%m月%d日 %H時%M分") %>
+   </div>
+   <div class="edit">
+      <%= link_to '編集', edit_article_path(@article), class: 'btn btn-primary' %>
+      <%= link_to '削除', article_path(@article), method: :delete, data: {confirm: '削除してよろしいですか？'}, class: 'btn btn-danger' %>
+   </div>
+</div>
