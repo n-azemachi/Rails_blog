@@ -1,8 +1,10 @@
 class ArticlesController < ApplicationController
+  before_action :authenticate_user!
   before_action :find_article, only: [:show, :edit, :update, :destroy]
+  before_action :validate_user, only: [:show, :edit, :update, :destroy]
   
   def index
-    @articles = Article.order(created_at: :desc)
+    @articles = current_user.article.order(created_at: :desc)
   end
 
   def show
@@ -18,6 +20,7 @@ class ArticlesController < ApplicationController
   
   def create
     @article = Article.new(article_params)
+    @article.user_id = current_user.id
     if @article.save
       redirect_to @article, notice: "作成しました"
     else
@@ -41,8 +44,15 @@ class ArticlesController < ApplicationController
   end
   
   private
+  
   def find_article
     @article = Article.find(params[:id])
+  end
+  
+  def validate_user
+    if @article.user != current_user
+      redirect_to root_path, notice: "自分の投稿ではありません"
+    end
   end
   
   def article_params
