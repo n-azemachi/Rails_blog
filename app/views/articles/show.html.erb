@@ -1,6 +1,10 @@
 <div class="container">
      <div class="col-md-12 title-margin">
-       <%= image_tag "main.jpg", class: 'article-image img-responsive' %>
+       <% if @article.image_id.present? %>
+       <%= image_tag attachment_url(@article, :image), class: "article-image margin-top" %>
+       <% else %>
+       <%= image_tag "default-bg.jpg", class: 'article-image margin-top' %>
+       <% end %>
       <h2 class="text-center"><%= @article.title %></h2>
       <h3 class="text-center" style="padding-top: 15px;"><%= simple_format @article.body %></h3>
      <p class="text-right"><%= @article.created_at.strftime("%Y年%m月%d日 %H時%M分") %></p>

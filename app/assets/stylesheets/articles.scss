@@ -18,6 +18,12 @@
     object-fit: cover;
 }
 
+.index-img {
+    max-height: 150px;
+    width: 100%;
+    object-fit: cover;
+}
+
 .textfield {
     margin-top: 15px;
 }
@@ -26,3 +32,21 @@
     margin: 10px 10px;
 }
 
+.relative {
+  position: relative;
+  i {
+     position: absolute;
+     top: 45%;
+     left: 48%;
+     font-size: 65px;
+     color: white;
+  }
+}
+#article_image {
+     display: none;
+  }
+
+
+#cover-image {
+    cursor: pointer;
+}

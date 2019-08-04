@@ -1,4 +1,10 @@
 <%= form_for article do |f| %>
+       <div id="cover-image" class="form-group margin-top relative">
+       <%= image_tag "default-bg.jpg", class: 'article-image img-responsive' %>
+         <i class="fa fa-camera"></i>
+         
+       </div>
+       <%= f.attachment_field :image %>
        <div class="form-group margin-top">
          <%= f.label :title, 'タイトル' %>
          <%= f.text_field :title, class: 'form-control' %>
