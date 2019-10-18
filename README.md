@@ -1,15 +1,10 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
 * Name  Rails Blog
 
-this is only portfolio
+this use only portfolio
 
-This was developed in one day
+Overview
 
-
-
+This is a simple blog service.
+You can post articles, upload photos, and change your profile.
